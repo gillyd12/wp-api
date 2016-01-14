@@ -35,4 +35,6 @@ module.exports = {
   //   level: "silent"
   // }
 
+  environment: process.env.NODE_ENV || 'production'
+
 };

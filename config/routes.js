@@ -32,18 +32,24 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  cors: true,
+
+  //'/': {
+  //  cors: true,
+  //  view: 'homepage'
+  //},
 
   /***************************************************************************
-  *                                                                          *
-  * Custom routes here...                                                    *
-  *                                                                          *
-  * If a request to a URL doesn't match any of the custom routes above, it   *
-  * is matched against Sails route blueprints. See `config/blueprints.js`    *
-  * for configuration options and examples.                                  *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * Custom routes here...                                                    *
+   *                                                                          *
+   *  If a request to a URL doesn't match any of the custom routes above, it  *
+   * is matched against Sails route blueprints. See `config/blueprints.js`    *
+   * for configuration options and examples.                                  *
+   *                                                                          *
+   ***************************************************************************/
+
+  'get /posts': {controller: 'BlogSummaryController', action: 'posts', skipAssets: true},
+  'get /posts/:title': {controller: 'BlogSummaryController', action: 'posts', skipAssets: true}
 
 };

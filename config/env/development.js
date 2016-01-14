@@ -21,4 +21,7 @@ module.exports = {
   //   connection: 'someMongodbServer'
   // }
 
+  //environment: process.env.NODE_ENV || 'development',
+
+
 };
