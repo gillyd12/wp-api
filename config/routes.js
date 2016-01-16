@@ -49,7 +49,7 @@ module.exports.routes = {
    *                                                                          *
    ***************************************************************************/
 
-  'get /posts': {controller: 'BlogSummaryController', action: 'posts', skipAssets: true},
-  'get /posts/:title': {controller: 'BlogSummaryController', action: 'posts', skipAssets: true}
+  // posts
+  'get /posts': {controller: 'BlogSummaryController', action: 'posts', skipAssets: true}
 
 };

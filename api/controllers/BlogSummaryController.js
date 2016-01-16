@@ -8,11 +8,9 @@
 var postsService = require('../services/PostsService');
 
 module.exports = {
-  /**
-   * `BlogSummaryController.read()`
-   */
   posts: function (req, res) {
-    res.json(postsService.get(req.params));
+    res.json(postsService.get());
   }
+
 };
 
