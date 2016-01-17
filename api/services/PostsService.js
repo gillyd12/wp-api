@@ -11,7 +11,7 @@ module.exports = {
     rest.get(resource).then(function(result){
       posts = result.data;
     }, function(error){
-      console.log(error.message);
+      sails.log.error(error.message);
     });
 
     return posts;
