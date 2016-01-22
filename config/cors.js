@@ -47,7 +47,7 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  origin: process.env.HOST_URL || process.env.LOCAL_HOST_URL,
+  origin: process.env.HOST_URL,
   //origin: 'http://localhost',
   //origin: '*',
 
