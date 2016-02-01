@@ -14,5 +14,4 @@ module.exports = {
       sails.log.error(error);
     }
   }
-
 };
