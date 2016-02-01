@@ -12,8 +12,15 @@ module.exports = {
     sails.log.info('request method: ' + req.method);
     sails.log.info('request protocol: ' + req.protocol);
     sails.log.info('request url: ' + req.url);
-    res.json(postsService.get());
-  }
 
+    try {
+      postsService.get().then(function (data) {
+        "use strict";
+        res.json(data.data);
+      })
+    } catch (error) {
+      sails.log.error(error);
+    }
+  }
 };
 

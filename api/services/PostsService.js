@@ -8,13 +8,11 @@ var resource = util.getRoot() + '/posts/';
 module.exports = {
 
   get: function () {
-    rest.get(resource).then(function(result){
-      posts = result.data;
-    }, function(error){
-      sails.log.error(error.message);
-    });
-
-    return posts;
+    try {
+      return rest.get(resource);
+    } catch (error) {
+      sails.log.error(error);
+    }
   }
 
 };
