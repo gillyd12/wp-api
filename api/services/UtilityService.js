@@ -13,7 +13,7 @@ module.exports = {
     return root;
   },
 
-  invoke: function(path, params) {
+  get: function(path, params) {
     "use strict";
 
     var url = this.getRoot() + path;
