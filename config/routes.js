@@ -50,8 +50,8 @@ module.exports.routes = {
    ***************************************************************************/
 
   // posts
-  'get /posts': {controller: 'BlogSummaryController', action: 'posts', skipAssets: true},
-  'get /users/:id': {controller: 'UserController', action: 'users', skip: true},
-  'get /tags/:id': {controller: 'TagController', action: 'tags', skip: true}
+  'get /posts': {controller: 'APIGetController', action: 'get', skipAssets: true},
+  'get /users/:id': {controller: 'APIGetController', action: 'get', skip: true},
+  'get /tags/:id': {controller: 'APIGetController', action: 'get', skip: true}
 
 };
