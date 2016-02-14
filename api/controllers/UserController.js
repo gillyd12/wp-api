@@ -5,16 +5,17 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-var usersService = require('../services/UsersService');
+var utilityService = require('../services/UtilityService');
 
 module.exports = {
   users: function (req, res) {
 
     // return specific user
-
     if (req.param('id')) {
       try {
-        usersService.get(req.param('id')).then(function (data) {
+
+        // methods return promises
+        utilityService.invoke(req.path, req.params).then(function (data) {
           "use strict";
           res.json(data.data);
         })
