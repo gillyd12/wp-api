@@ -51,6 +51,7 @@ module.exports.routes = {
 
   // posts
   'get /posts': {controller: 'BlogSummaryController', action: 'posts', skipAssets: true},
-  'get /users/:id': {controller: 'UserController', action: 'users', skip: true}
+  'get /users/:id': {controller: 'UserController', action: 'users', skip: true},
+  'get /tags/:id': {controller: 'TagController', action: 'tags', skip: true}
 
 };
