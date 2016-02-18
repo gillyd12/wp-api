@@ -1,5 +1,5 @@
 /**
-* BlogSummary.js
+* Tag.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -8,8 +8,20 @@
 module.exports = {
 
   attributes: {
-
-    read : { type: 'string' }
+    id: {
+      type: 'integer',
+      primaryKey: true,
+      unique: true
+    },
+    count: {
+      type: 'integer'
+    },
+    description: {
+      type: 'string'
+    },
+    name: {
+      type: 'string'
+    },
   }
 };
 

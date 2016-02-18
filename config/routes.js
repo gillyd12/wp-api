@@ -50,8 +50,15 @@ module.exports.routes = {
    ***************************************************************************/
 
   // posts
-  'get /posts': {controller: 'APIGetController', action: 'get', skipAssets: true},
+  'get /posts': {controller: 'APIGetController', model: 'get', action: 'get', skipAssets: true},
   'get /users/:id': {controller: 'APIGetController', action: 'get', skip: true},
-  'get /tags/:id': {controller: 'APIGetController', action: 'get', skip: true}
+  'get /tags/:id': {controller: 'APIGetController', action: 'get', skip: true},
+
+
+  // caching endpoints for cron jobs
+  'post /users/cache': {controller: 'UserController', action: 'cache', skipAssets: true}
+
+  //'get /cache': {controller: 'CacheController', action: 'post', skipAssets: true},
+  //'get /cache/return': {controller: 'CacheController', action: 'loadpost', skipAssets: true}
 
 };
