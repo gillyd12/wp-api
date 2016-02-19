@@ -21,7 +21,19 @@ module.exports = {
     },
     name: {
       type: 'string'
-    },
+    }
+  },
+
+  map: function(api_model) {
+    "use strict";
+    var obj = {
+      id: api_model.id,
+      count: api_model.count,
+      description: api_model.description,
+      name: api_model.name
+    }
+    return obj;
   }
+
 };
 

@@ -28,12 +28,29 @@ module.exports = {
     modified_date: {
       type: 'datetime'
     },
-    tag: {
+    tags: {
       type: 'array'
     },
-    category: {
+    categories: {
       type: 'array'
     }
+  },
+
+  map: function(api_model) {
+    "use strict";
+    var obj = {
+      id: api_model.id,
+      title: api_model.title.rendered,
+      excerpt: api_model.excerpt.rendered,
+      author: api_model.author,
+      published_date: api_model.date,
+      modified_date: api_model.modified,
+      tags: api_model.tags,
+      categories: api_model.categories
+
+    }
+    return obj;
   }
+
 };
 

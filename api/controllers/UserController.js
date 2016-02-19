@@ -22,19 +22,23 @@ module.exports = {
       utilityService.get('/users', req.params).then(function (data) {
         "use strict";
         _(data.data).forEach(function(value) {
-          //sails.log.info(value);
           var obj = User.map(value);
           sails.log.info('name was set: ' + obj.name);
 
-            User.create(obj).exec(function createCB(err, created) {
-              console.log('Created post with name ' + created.name);
-              res.json(created);
+          User.create(obj)
+            .then(function(data) {
+              console.log('Created post with name ' + data.name);
+              res.ok();
+            })
+            .catch(function(error) {
+              sails.log.error(error);
+              res.serverError();
             })
           })
       })
     } catch (error) {
       sails.log.error(error);
-      res.send(404);
+      res.serverError();
     }
   }
 
