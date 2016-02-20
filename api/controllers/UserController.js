@@ -12,7 +12,7 @@ module.exports = {
   cache: function(req, res) {
 
     try {
-      cacheService.load('/users', User);
+      cacheService.load(User);
       res.ok();
     } catch (error) {
       sails.log.error(error);

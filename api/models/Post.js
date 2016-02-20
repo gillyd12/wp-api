@@ -50,6 +50,11 @@ module.exports = {
 
     }
     return obj;
+  },
+
+  path: function() {
+    "use strict";
+    return '/posts';
   }
 
 };

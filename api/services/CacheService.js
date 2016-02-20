@@ -6,18 +6,17 @@ var utilityService = require('../services/UtilityService');
 
 module.exports = {
 
-  load: function (path, model) {
+  load: function (model) {
 
     try {
-      // methods return promises
-      utilityService.get(path).then(function (data) {
+      utilityService.get(model.path()).then(function (data) {
         "use strict";
         _(data.data).forEach(function (value) {
           var obj = model.map(value);
 
           model.create(obj)
             .then(function (data) {
-              sails.log.info("ID of " + path + " has been loaded: " + data.id);
+              sails.log.info("ID of " + model.path() + " has been loaded: " + data.id);
             })
             .catch(function (error) {
               sails.log.error(error);

@@ -25,6 +25,11 @@ module.exports = {
       name: api_model.name
     }
     return obj;
+  },
+
+  path: function() {
+    "use strict";
+    return '/users';
   }
 
 };
