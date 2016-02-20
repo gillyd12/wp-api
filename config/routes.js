@@ -54,8 +54,8 @@ module.exports.routes = {
 
 
   // caching endpoints for cron jobs
-  'post /users/cache': {controller: 'UserController', action: 'cache', skipAssets: true},
-  'post /posts/cache': {controller: 'PostController', action: 'cache', skipAssets: true},
-  'post /tags/cache': {controller: 'TagController', action: 'cache', skipAssets: true}
+  //'post /users/cache': {controller: 'UserController', action: 'cache', skipAssets: true},
+  //'post /posts/cache': {controller: 'PostController', action: 'cache', skipAssets: true},
+  //'post /tags/cache': {controller: 'TagController', action: 'cache', skipAssets: true}
 
 };

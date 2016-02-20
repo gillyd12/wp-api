@@ -17,7 +17,7 @@ module.exports = {
 
           model.create(obj)
             .then(function (data) {
-              sails.log.info("Data has been cached: " + data.id);
+              sails.log.info("ID of " + path + " has been loaded: " + data.id);
             })
             .catch(function (error) {
               sails.log.error(error);
