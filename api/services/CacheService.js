@@ -2,41 +2,30 @@
  * Created by bryangill on 2/16/16.
  */
 
+var utilityService = require('../services/UtilityService');
+
 module.exports = {
 
-  load: function (id, model, params) {
+  load: function (path, model) {
 
-    //Post.find({id:'22'}).exec(function (err, post){
-    //  var data = {};
-    //  "use strict";
-    //  if (err) {
-    //
-    //  } else {
-    //    data = post;
-    //  }
-    //  return data;
-    //});
-    //
+    try {
+      // methods return promises
+      utilityService.get(path).then(function (data) {
+        "use strict";
+        _(data.data).forEach(function (value) {
+          var obj = model.map(value);
 
-    //return caching.createCache(url, Cache, result.data)
-    //  .then(function (result) {
-    //    return result;
-    //  }).catch(function (error) {
-    //    throw error;
-    //  });
-
-    // params will eventually be an array to iterate over, instead of passing url
-    // this is returning a chainable deferred objected from waterline orm
-    sails.log.info(id);
-    return model.find({id: id});
-  },
-
-  createCache: function (url, model, data) {
-
-
-
-    //sails.log.info(data);
-    //return model.create(data);
+          model.create(obj)
+            .then(function (data) {
+              sails.log.info("Data has been cached: " + data.id);
+            })
+            .catch(function (error) {
+              sails.log.error(error);
+            })
+        })
+      })
+    } catch (error) {
+      sails.log.error(error);
+    }
   }
-
 }
