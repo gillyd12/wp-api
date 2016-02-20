@@ -37,7 +37,7 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  allRoutes: true,
+  allRoutes: process.env.ALLOW_CORS,
 
   /***************************************************************************
   *                                                                          *
@@ -79,6 +79,6 @@ module.exports.cors = {
 
   headers: 'content-type',
 
-  securityLevel: 2
+  securityLevel: 1
 
 };
