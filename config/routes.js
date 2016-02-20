@@ -32,8 +32,6 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  cors: true,
-
   //'/': {
   //  cors: true,
   //  view: 'homepage'
@@ -50,8 +48,14 @@ module.exports.routes = {
    ***************************************************************************/
 
   // posts
-  'get /posts': {controller: 'APIGetController', action: 'get', skipAssets: true},
-  'get /users/:id': {controller: 'APIGetController', action: 'get', skip: true},
-  'get /tags/:id': {controller: 'APIGetController', action: 'get', skip: true}
+  //'get /posts': {controller: 'APIGetController', model: 'get', action: 'get', skipAssets: true},
+  //'get /users/:id': {controller: 'APIGetController', action: 'get', skip: true},
+  //'get /tags/:id': {controller: 'APIGetController', action: 'get', skip: true},
+
+
+  // caching endpoints for cron jobs
+  //'post /users/cache': {controller: 'UserController', action: 'cache', skipAssets: true},
+  //'post /posts/cache': {controller: 'PostController', action: 'cache', skipAssets: true},
+  //'post /tags/cache': {controller: 'TagController', action: 'cache', skipAssets: true}
 
 };

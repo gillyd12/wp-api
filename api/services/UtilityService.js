@@ -18,6 +18,7 @@ module.exports = {
 
     var url = this.getRoot() + path;
 
+    sails.log.info('Retrieving API data at: ' + url);
     var options = {
       query: params
     };
