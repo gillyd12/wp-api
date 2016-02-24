@@ -17,11 +17,15 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
+  models: {
+    migrate: "drop"
+  },
+
   // models: {
   //   connection: 'someMongodbServer'
   // }
 
-  //environment: process.env.NODE_ENV || 'development',
+  environment: process.env.NODE_ENV || 'development'
 
 
 };
