@@ -28,5 +28,7 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
 
-  autoPK: false
+  autoPK: false,
+
+  migrate: 'drop'
 };
