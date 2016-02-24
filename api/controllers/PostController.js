@@ -12,7 +12,7 @@ module.exports = {
   cache: function(req, res) {
 
     try {
-      cacheService.load(Post);
+      cacheService.populate(Post);
       res.ok();
     } catch (error) {
       sails.log.error(error);

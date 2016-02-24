@@ -16,9 +16,9 @@ module.exports.bootstrap = function(cb) {
   // pre-caching data
   sails.on('lifted', function() {
     try {
-      cacheService.load(Post);
-      cacheService.load(Tag);
-      cacheService.load(User);
+      cacheService.reload(Post);
+      cacheService.reload(Tag);
+      cacheService.reload(User);
     } catch (error) {
       sails.log.error(error);
     }
