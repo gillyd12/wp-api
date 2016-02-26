@@ -3,6 +3,7 @@
  */
 
 var rest = require('restling');
+var _ = require('lodash');
 
 var root = process.env.ROOT_URL;
 
@@ -13,7 +14,7 @@ module.exports = {
     return root;
   },
 
-  get: function(path, params) {
+  get: function (path, params) {
     "use strict";
 
     var url = this.getRoot() + path;
@@ -29,5 +30,22 @@ module.exports = {
       sails.log.error(error);
     }
 
+  },
+
+  formatExcerpt(excerpt) {
+    "use strict";
+    var value = _.truncate(excerpt, {
+      'length': 200,
+      'separator': /.? +/
+    });
+    return this.removeHtmlChar(value);
+
+  },
+
+  removeHtmlChar (text) {
+    "use strict";
+    return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+
   }
+  //return _.words(excerpt);
 };

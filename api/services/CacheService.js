@@ -3,6 +3,7 @@
  */
 
 var utilityService = require('../services/UtilityService');
+var _ = require('lodash');
 
 module.exports = {
 

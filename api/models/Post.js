@@ -5,6 +5,8 @@
  * @docs        :: http://sailsjs.org/#!documentation/models
  */
 
+var util = require('../services/UtilityService');
+
 module.exports = {
 
   attributes: {
@@ -33,6 +35,12 @@ module.exports = {
     },
     categories: {
       type: 'array'
+    },
+    slug: {
+      type: 'string'
+    },
+    link: {
+      type: 'string'
     }
   },
 
@@ -41,13 +49,14 @@ module.exports = {
     var obj = {
       id: api_model.id,
       title: api_model.title.rendered,
-      excerpt: api_model.excerpt.rendered,
+      excerpt: util.formatExcerpt(api_model.excerpt.rendered),
       author: api_model.author,
       published_date: api_model.date,
       modified_date: api_model.modified,
       tags: api_model.tags,
-      categories: api_model.categories
-
+      categories: api_model.categories,
+      slug: api_model.slug,
+      link: api_model.link
     }
     return obj;
   },
