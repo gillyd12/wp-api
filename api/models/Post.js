@@ -56,7 +56,7 @@ module.exports = {
       tags: api_model.tags,
       categories: api_model.categories,
       slug: api_model.slug,
-      link: api_model.link
+      link: util.formatLink(api_model.link)
     }
     return obj;
   },
