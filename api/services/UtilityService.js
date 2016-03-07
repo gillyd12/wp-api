@@ -52,7 +52,7 @@ module.exports = {
 
   formatLink(link) {
     "use strict";
-    return _.replace(link, api_domain, prod_host_url);
+    return _.replace(link, api_domain, prod_host_url + "/blog");
   },
 
   removeHtmlChar (text) {
