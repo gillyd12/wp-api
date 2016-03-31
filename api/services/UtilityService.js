@@ -40,7 +40,7 @@ module.exports = {
 
   },
 
-  formatExcerpt(excerpt) {
+  formatExcerpt: function (excerpt) {
     "use strict";
     var value = _.truncate(excerpt, {
       'length': 200,
@@ -50,12 +50,12 @@ module.exports = {
 
   },
 
-  formatLink(link) {
+  formatLink: function (link) {
     "use strict";
     return _.replace(link, api_domain, prod_host_url + "/blog");
   },
 
-  removeHtmlChar (text) {
+  removeHtmlChar: function (text) {
     "use strict";
     return text ? String(text).replace(/<[^>]+>/gm, '') : '';
   }
