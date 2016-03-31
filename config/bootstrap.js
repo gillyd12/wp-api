@@ -19,6 +19,7 @@ module.exports.bootstrap = function(cb) {
       cacheService.reload(Post);
       cacheService.reload(Tag);
       cacheService.reload(User);
+      cacheService.reload(Category);
     } catch (error) {
       sails.log.error(error);
     }
