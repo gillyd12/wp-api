@@ -3,8 +3,12 @@
  */
 
 var rest = require('restling');
+var _ = require('lodash');
 
+// todo refactor the use of environment vars -- use req
 var root = process.env.ROOT_URL;
+var api_domain = process.env.API_DOMAIN;
+var prod_host_url = process.env.PROD_URL;
 
 module.exports = {
 
@@ -13,12 +17,17 @@ module.exports = {
     return root;
   },
 
-  get: function(path, params) {
+  getProdHostURL: function() {
+    "use strict";
+    return prod_host_url;
+  },
+
+  get: function (path, params) {
     "use strict";
 
     var url = this.getRoot() + path;
 
-    sails.log.info('Retrieving API data at: ' + url);
+    sails.log.info('Retrieving API data at: ' + this.getRoot());
     var options = {
       query: params
     };
@@ -29,5 +38,25 @@ module.exports = {
       sails.log.error(error);
     }
 
+  },
+
+  formatExcerpt(excerpt) {
+    "use strict";
+    var value = _.truncate(excerpt, {
+      'length': 200,
+      'separator': /.? +/
+    });
+    return this.removeHtmlChar(value);
+
+  },
+
+  formatLink(link) {
+    "use strict";
+    return _.replace(link, api_domain, prod_host_url + "/blog");
+  },
+
+  removeHtmlChar (text) {
+    "use strict";
+    return text ? String(text).replace(/<[^>]+>/gm, '') : '';
   }
 };
