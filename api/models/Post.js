@@ -36,9 +36,6 @@ module.exports = {
     categories: {
       type: 'array'
     },
-    comments: {
-      type: 'array'
-    },
     slug: {
       type: 'string'
     },
@@ -59,8 +56,7 @@ module.exports = {
       tags: api_model.tags,
       categories: api_model.categories,
       slug: api_model.slug,
-      link: util.formatLink(api_model.link),
-      comments: api_model._links.replies
+      link: util.formatLink(api_model.link)
     }
     return obj;
   },
