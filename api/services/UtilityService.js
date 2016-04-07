@@ -17,7 +17,7 @@ module.exports = {
     return root;
   },
 
-  getProdHostURL: function() {
+  getProdHostURL: function () {
     "use strict";
     return prod_host_url;
   },
@@ -28,6 +28,7 @@ module.exports = {
     var url = this.getRoot() + path;
 
     sails.log.info('Retrieving API data at: ' + this.getRoot());
+
     var options = {
       query: params
     };
