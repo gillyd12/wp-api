@@ -21,6 +21,7 @@ module.exports.bootstrap = function(cb) {
       cacheService.reload(User);
       cacheService.reload(Category);
       cacheService.reload(Comment);
+      cacheService.reloadEncodedData(Media);
     } catch (error) {
       sails.log.error(error);
     }

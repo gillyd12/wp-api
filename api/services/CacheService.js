@@ -58,6 +58,24 @@ module.exports = {
     }
   },
 
+  populateEncodedData: function (model) {
+    "use strict";
+    try {
+      utilityService.get(model.path()).then(function (data) {
+        "use strict";
+        var newRecords = data;
+
+        _(newRecords.data).forEach(function (value) {
+          model.map(model, value);
+        })
+      })
+
+    } catch (error) {
+      sails.log.error(error);
+    }
+
+  },
+
   reload: function (model) {
     "use strict";
     try {
@@ -66,6 +84,17 @@ module.exports = {
     } catch (error) {
       sails.info.error(error);
     }
+  },
+
+  reloadEncodedData: function (model) {
+    "use strict";
+    try {
+      this.destroy(model);
+      this.populateEncodedData((model));
+    } catch (error) {
+      sails.info.error(error);
+    }
   }
+
 
 }
