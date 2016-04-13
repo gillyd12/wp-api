@@ -15,6 +15,11 @@ module.exports = {
       primaryKey: true,
       unique: true
     },
+    featured_media_id: {
+      type: 'integer',
+      primaryKey: false,
+      unique: false
+    },
     title: {
       type: 'string'
     },
@@ -48,6 +53,7 @@ module.exports = {
     "use strict";
     var obj = {
       id: api_model.id,
+      featured_media_id: api_model.featured_media,
       title: api_model.title.rendered,
       excerpt: util.formatExcerpt(api_model.excerpt.rendered),
       author: api_model.author,

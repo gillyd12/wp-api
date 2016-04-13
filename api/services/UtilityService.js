@@ -4,6 +4,7 @@
 
 var rest = require('restling');
 var _ = require('lodash');
+var base64 = require('node-base64-image');
 
 // todo refactor the use of environment vars -- use req
 var root = process.env.ROOT_URL;
@@ -59,5 +60,27 @@ module.exports = {
   removeHtmlChar: function (text) {
     "use strict";
     return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+  },
+
+  base64encode: function (media) {
+    "use strict";
+
+    var options = {string: true};
+
+    var promise = new Promise(function(resolve, reject) {
+
+      base64.base64encoder(media, options, function (err, image) {
+        if (err) {
+          sails.log.error(err);
+        }
+        if (image) {
+          resolve(image);
+        } else {
+          reject('failure');
+        }
+      })
+
+    });
+    return promise;
   }
 };
