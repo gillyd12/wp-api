@@ -62,7 +62,8 @@ module.exports = {
       tags: api_model.tags,
       categories: api_model.categories,
       slug: api_model.slug,
-      link: util.formatLink(api_model.link)
+      link: util.formatLink(api_model.link),
+      subheading: util.getSubHeading(api_model.content.rendered)
     }
     return obj;
   },

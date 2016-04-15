@@ -52,6 +52,14 @@ module.exports = {
 
   },
 
+  getSubHeading: function (text) {
+    "use strict";
+    var start = text.indexOf("^") + 1;
+    var end = text.lastIndexOf("^");
+
+    return text ? String(text).substring(start, end) : '';
+  },
+
   formatLink: function (link) {
     "use strict";
     return _.replace(link, api_domain, prod_host_url + "/blog");
