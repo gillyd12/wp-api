@@ -55,15 +55,16 @@ module.exports = {
       id: api_model.id,
       featured_media_id: api_model.featured_media,
       title: api_model.title.rendered,
+      content: api_model.content.rendered,
       excerpt: util.formatExcerpt(api_model.excerpt.rendered),
+      subheading: util.getSubHeading(api_model.content.rendered),
       author: api_model.author,
       published_date: api_model.date,
       modified_date: api_model.modified,
       tags: api_model.tags,
       categories: api_model.categories,
       slug: api_model.slug,
-      link: util.formatLink(api_model.link),
-      subheading: util.getSubHeading(api_model.content.rendered)
+      link: util.formatLink(api_model.link)
     }
     return obj;
   },
