@@ -62,9 +62,6 @@ module.exports = {
 
   formatLink: function (link) {
     "use strict";
-    console.log('link: ' + link);
-    console.log('api_domain: ' + api_domain);
-    console.log('prod_host_url: ' + prod_host_url);
     return _.replace(link, api_domain, prod_host_url + "/blog");
   },
 
