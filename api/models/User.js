@@ -15,6 +15,9 @@ module.exports = {
     },
     name: {
       type: 'string'
+    },
+    image: {
+      type: 'string'
     }
   },
 
@@ -22,7 +25,8 @@ module.exports = {
     "use strict";
     var obj = {
       id: api_model.id,
-      name: api_model.name
+      name: api_model.name,
+      image: api_model.avatar_urls['96']
     }
     return obj;
   },
