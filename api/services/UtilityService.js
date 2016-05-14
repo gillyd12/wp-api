@@ -54,8 +54,8 @@ module.exports = {
 
   getSubHeading: function (text) {
     "use strict";
-    var start = text.indexOf("^") + 1;
-    var end = text.lastIndexOf("^");
+    var start = text.lastIndexOf("subheading") + 12;
+    var end = text.lastIndexOf("<");
 
     return text ? String(text).substring(start, end) : '';
   },
