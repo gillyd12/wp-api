@@ -14,6 +14,9 @@ module.exports = {
     },
     guid: {
       type: 'string'
+    },
+    media_details: {
+      type: 'json'
     }
   },
 
@@ -26,7 +29,8 @@ module.exports = {
         if (data) {
           var obj = {
             id: api_model.id,
-            guid: data
+            guid: data,
+            media_details: api_model.media_details
           }
           model.create(obj)
             .then(function (data) {
