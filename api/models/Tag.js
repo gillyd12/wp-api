@@ -1,9 +1,9 @@
 /**
-* Tag.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+ * Tag.js
+ *
+ * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @docs        :: http://sailsjs.org/#!documentation/models
+ */
 
 module.exports = {
 
@@ -24,18 +24,23 @@ module.exports = {
     }
   },
 
-  map: function(api_model) {
+  map: function (api_model) {
     "use strict";
-    var obj = {
-      id: api_model.id,
-      count: api_model.count,
-      description: api_model.description,
-      name: api_model.name
+
+    try {
+
+      var obj = {
+        id: api_model.id,
+        count: api_model.count,
+        description: api_model.description,
+        name: api_model.name
+      }
+    } catch (error) {
+      sails.log.error(error);
     }
-    return obj;
   },
 
-  path: function() {
+  path: function () {
     "use strict";
     return '/tags';
   }

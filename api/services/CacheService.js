@@ -40,18 +40,15 @@ module.exports = {
         var newRecords = data;
 
         _(newRecords.data).forEach(function (value) {
-          var obj = model.map(value);
-
-          model.create(obj)
-            .then(function (data) {
-              sails.log.info("ID of " + model.path() + " has been loaded: " + data.id);
-            })
-            .catch(function (error) {
-              sails.log.error(error);
-            });
-
+            model.create(model.map(value))
+              .then(function (data) {
+                sails.log.info("ID of " + model.path() + " has been loaded: " + data.id);
+              })
+              .catch(function (error) {
+                sails.log.error(error);
+              });
+          })
         })
-      })
 
     } catch (error) {
       sails.log.error(error);

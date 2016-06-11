@@ -25,6 +25,7 @@ module.exports = {
     "use strict";
 
     try {
+
       util.base64encode(api_model.guid.rendered).then(function (data) {
         if (data) {
           var obj = {
@@ -41,6 +42,7 @@ module.exports = {
             });
         }
       })
+
     } catch (error) {
       sails.log.error(error);
     }

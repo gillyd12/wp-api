@@ -26,19 +26,25 @@ module.exports = {
 
   },
 
-  map: function(api_model) {
+  map: function (api_model) {
     "use strict";
-    var obj = {
-      id: api_model.id,
-      post_id: api_model.post,
-      description: api_model.content.rendered,
-      author_name: api_model.author_name,
-      date: api_model.date
+    try {
+
+      var obj = {
+        id: api_model.id,
+        post_id: api_model.post,
+        description: api_model.content.rendered,
+        author_name: api_model.author_name,
+        date: api_model.date
+      }
+
+    } catch (error) {
+      sails.log.error(error);
     }
-    return obj;
+
   },
 
-  path: function() {
+  path: function () {
     "use strict";
     return '/comments';
   }

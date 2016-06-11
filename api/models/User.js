@@ -1,9 +1,9 @@
 /**
-* User.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+ * User.js
+ *
+ * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @docs        :: http://sailsjs.org/#!documentation/models
+ */
 
 module.exports = {
 
@@ -21,17 +21,22 @@ module.exports = {
     }
   },
 
-  map: function(api_model) {
+  map: function (api_model) {
     "use strict";
-    var obj = {
-      id: api_model.id,
-      name: api_model.name,
-      image: api_model.avatar_urls['96']
+
+    try {
+
+      var obj = {
+        id: api_model.id,
+        name: api_model.name,
+        image: api_model.avatar_urls['96']
+      }
+    } catch (error) {
+      sails.log.error(error);
     }
-    return obj;
   },
 
-  path: function() {
+  path: function () {
     "use strict";
     return '/users';
   }
