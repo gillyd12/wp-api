@@ -24,10 +24,9 @@ module.exports = {
     }
   },
 
-  map: function (api_model) {
+  map: function (a, res, api_model) {
     "use strict";
-
-    try {
+    var promise = new Promise(function (resolve, reject) {
 
       var obj = {
         id: api_model.id,
@@ -35,9 +34,11 @@ module.exports = {
         description: api_model.description,
         name: api_model.name
       }
-    } catch (error) {
-      sails.log.error(error);
-    }
+
+      res.model = obj;
+      resolve(res);
+    });
+    return promise;
   },
 
   path: function () {

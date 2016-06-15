@@ -7,14 +7,6 @@ var _ = require('lodash');
 
 module.exports = {
 
-  //      //// update title
-  //      //model.update({id: record.id}, {title: obj.title})
-  //      //.then(function (data) {
-  //      //  sails.log.info('updated: ' + data[0].id);
-  //      //}).catch(function(update_error) {
-  //      //  sails.log.error(update_error);
-  //      //});
-
   destroy: function (model) {
     "use strict";
 
@@ -40,13 +32,18 @@ module.exports = {
         var newRecords = data;
 
         _(newRecords.data).forEach(function (value) {
-            model.create(model.map(value))
-              .then(function (data) {
-                sails.log.info("ID of " + model.path() + " has been loaded: " + data.id);
-              })
-              .catch(function (error) {
-                sails.log.error(error);
-              });
+            // sails.log.info("I went into new records id: " + value.id);
+            var a;
+            var res = {};
+            model.map(a, res, value).then(function(data) {
+              model.create(data.model)
+                .then(function (data) {
+                  sails.log.info("ID of " + model.path() + " has been loaded: " + data.id);
+                })
+                .catch(function (error) {
+                  sails.log.error(error);
+                });
+            })
           })
         })
 

@@ -69,10 +69,10 @@ module.exports = {
               post_media_id = value.id;
             }
           });
-          if (post_media_id != 0) {
-            sails.log.info("resolving post_media_id: " + post_media_id)
+          // if (post_media_id != 0) {
+          //   sails.log.info("resolving post_media_id: " + post_media_id)
             resolve(post_media_id);
-          }
+          // }
         });
       } catch (error) {
         sails.log.error(error);
@@ -94,11 +94,11 @@ module.exports = {
         try {
           self.get(media_url).then(function (data) {
             self.getMediaFileId(data.data.slug).then(function (data) {
-              sails.log.info('return post_media: ' + data);
-              if (data) {
-                sails.log.info("resolving data: " + data)
+              // sails.log.info('return post_media: ' + data);
+              // if (data) {
+              //   sails.log.info("resolving data: " + data)
                 resolve(data);
-              }
+              // }
 
             })
           });
